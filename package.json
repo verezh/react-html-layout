@@ -1,0 +1,74 @@
+{
+    "name": "react-html-layout",
+    "version": "0.0.1",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "dependencies": {
+        "node-sass": "^4.13.0",
+        "react": "^16.11.0",
+        "react-dom": "^16.11.0",
+        "react-scripts": "3.2.0",
+        "tslint": "^5.20.0",
+        "typescript": "3.6.4"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "eject": "react-scripts eject",
+        "eslint": "eslint . --fix",
+        "test": "react-scripts test",
+        "build": "tsc",
+        "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+        "lint": "tslint -p tsconfig.json",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm test && npm run lint",
+        "preversion": "npm run lint",
+        "version": "npm run format && git add -A src",
+        "postversion": "git push && git push --tags"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/berezh/react-html-layout.git"
+    },
+    "keywords": [
+        "react",
+        "html",
+        "layout",
+        "header",
+        "footer",
+        "sidebar",
+        "content"
+    ],
+    "author": "Vadym Poberezhnyi",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/berezh/react-html-layout/issues"
+    },
+    "homepage": "https://github.com/berezh/react-html-layout#readme",
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@types/jest": "24.0.19",
+        "@types/node": "12.11.6",
+        "@types/react": "^16.9.9",
+        "@types/react-dom": "16.9.2",
+        "@typescript-eslint/eslint-plugin": "^2.5.0",
+        "@typescript-eslint/parser": "^2.5.0",
+        "eslint": "^6.5.1",
+        "eslint-config-prettier": "^6.4.0",
+        "eslint-plugin-prettier": "^3.1.1",
+        "prettier": "^1.18.2"
+    }
+}
