@@ -1,13 +1,4 @@
-# dependencies
-/node_modules
-/lib
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.env.local
-
+.DS_Store
+node_modules
+dist
+.rpt2_cache
