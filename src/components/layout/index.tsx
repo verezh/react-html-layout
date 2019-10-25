@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { EmptyBox } from "../empty-box";
+import "./index.scss";
 
 // const Wrapper = styled.div`
 //   padding: 10px;
@@ -26,7 +27,7 @@ export class Layout extends React.PureComponent<LayoutProps> {
       <div className="layout">
         <div className="layout__header">{header ? header : <EmptyBox>Header</EmptyBox>}</div>
         <div className="layout__body">
-          <div className="layout__body__sidebar">{sidebar ? sidebar : <EmptyBox>Sidebar</EmptyBox>}</div>
+          <div className="layout__body__sidebar">{sidebar === "" ? <EmptyBox>Sidebar</EmptyBox> : sidebar}</div>
           <div className="layout__body__content">{children ? children : <EmptyBox>Content</EmptyBox>}</div>
         </div>
         <div className="layout__footer">{footer ? footer : <EmptyBox>Footer</EmptyBox>}</div>

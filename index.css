@@ -9,3 +9,26 @@
   text-transform: uppercase;
   color: #444;
   border: 1px solid #aaa; }
+
+html,
+body {
+  margin: 0;
+  padding: 0; }
+
+.layout {
+  display: flex;
+  height: 100vh;
+  flex-direction: column; }
+  .layout__header {
+    display: flex;
+    display: flex; }
+  .layout__body {
+    flex: 1;
+    display: flex; }
+    .layout__body__sidebar {
+      display: flex; }
+    .layout__body__content {
+      flex: 1;
+      display: flex; }
+  .layout__footer {
+    display: flex; }

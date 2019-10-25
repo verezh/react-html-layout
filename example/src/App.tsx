@@ -10,8 +10,8 @@ const StyledDiv = styled.div`
 
 class App extends Component {
   render() {
-    return <Layout />;
+    return <Layout sidebar={""} />;
   }
 }
 
-export default App;
+export { App };

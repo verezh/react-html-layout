@@ -1,0 +1,29 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.layout {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    &__header {
+        display: flex;
+        display: flex;
+    }
+    &__body {
+        flex: 1;
+        display: flex;
+        &__sidebar {
+            display: flex;
+        }
+        &__content {
+            flex: 1;
+            display: flex;
+        }
+    }
+    &__footer {
+        display: flex;
+    }
+}
