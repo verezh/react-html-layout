@@ -14,7 +14,7 @@ export default [
             }),
             scss({
                 output: function(styles, styleNodes) {
-                    fs.writeFileSync('index.css', styles);
+                    fs.writeFileSync('dist/index.css', styles);
                     fs.writeFileSync('example/src/react-html-layout/index.css', styles);
                 },
             }),
