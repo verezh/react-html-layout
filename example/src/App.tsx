@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-
-import { Layout } from './reactComponentLib';
+import React, { Component } from "react";
+import styled from "styled-components";
+import { Layout } from "./react-html-layout";
 
 const StyledDiv = styled.div`
   padding: 10px;
@@ -11,9 +10,7 @@ const StyledDiv = styled.div`
 
 class App extends Component {
   render() {
-    return (
-      <Layout />
-    );
+    return <Layout />;
   }
 }
 
