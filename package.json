@@ -5,11 +5,13 @@
     "module": "dist/index.esm.js",
     "types": "dist/index.d.ts",
     "devDependencies": {
+        "@types/classnames": "^2.2.9",
         "@types/react": "^16.8.25",
         "@types/react-dom": "^16.8.5",
         "@types/styled-components": "^4.1.18",
         "@typescript-eslint/eslint-plugin": "^2.0.0",
         "@typescript-eslint/parser": "^2.0.0",
+        "classnames": "^2.2.6",
         "concurrently": "^4.1.1",
         "eslint": "^6.2.0",
         "eslint-config-prettier": "^6.0.0",
