@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Layout } from "./react-html-layout";
+import { Root } from "./routes";
 
 const StyledDiv = styled.div`
   padding: 10px;
@@ -10,7 +10,7 @@ const StyledDiv = styled.div`
 
 class App extends Component {
   render() {
-    return <Layout sidebar={""} />;
+    return <Root />;
   }
 }
 
