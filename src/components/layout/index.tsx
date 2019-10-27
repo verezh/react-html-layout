@@ -43,7 +43,7 @@ export class Layout extends React.PureComponent<LayoutProps> {
             contentWidth,
         } = this.props;
         const rootStyle: React.CSSProperties = {};
-        const bodyStyle: React.CSSProperties = {};
+        const contentStyle: React.CSSProperties = {};
         const sidebarStyle: React.CSSProperties = {
             width: sidebarWidth ? sidebarWidth : DEFAULT_SIDEBAR_WIDTH,
         };
@@ -51,15 +51,15 @@ export class Layout extends React.PureComponent<LayoutProps> {
             rootStyle.paddingTop = fixedHeaderHeigth || DEFAULT_HEADER_HEIGHT;
         }
         if (contentWidth) {
-            bodyStyle.maxWidth = contentWidth;
-            bodyStyle.margin = "0 auto";
+            contentStyle.maxWidth = contentWidth;
+            contentStyle.margin = "0 auto";
         }
         return (
             <div className={classnames("layout")} style={rootStyle}>
                 <Header fixed={fixedHeader} fixedHeigth={fixedHeaderHeigth || DEFAULT_HEADER_HEIGHT}>
                     {header}
                 </Header>
-                <div className="layout__body" style={bodyStyle}>
+                <div className="layout__body" style={contentStyle}>
                     <div className="layout__body__sidebar" style={sidebarStyle}>
                         {sidebar === "" ? <EmptyBox>Sidebar</EmptyBox> : <div>{sidebar}</div>}
                     </div>
