@@ -10,12 +10,6 @@ import classnames from "classnames";
 //   color: red;
 // `;
 
-// export interface LayoutProps {
-//   text?: string;
-// }
-
-// export const Layout: React.FC<LayoutProps> = ({ text }) => <Wrapper>{text ? text : "Test Component 2"}</Wrapper>;
-
 export interface LayoutProps {
     header?: ReactNode;
     footer?: ReactNode;
@@ -40,6 +34,7 @@ export class Layout extends React.PureComponent<LayoutProps> {
             fixedHeader,
             fixedHeaderHeigth,
             sidebarWidth,
+            fixedSidebar,
             contentWidth,
         } = this.props;
         const rootStyle: React.CSSProperties = {};
@@ -53,6 +48,9 @@ export class Layout extends React.PureComponent<LayoutProps> {
         if (contentWidth) {
             contentStyle.maxWidth = contentWidth;
             contentStyle.margin = "0 auto";
+        }
+        if (fixedSidebar) {
+            sidebarStyle.position
         }
         return (
             <div className={classnames("layout")} style={rootStyle}>
