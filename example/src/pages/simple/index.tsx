@@ -8,6 +8,7 @@ import { Sidebar, Content } from "../../components";
 import { Header } from "../../components/header";
 import { Drawer } from "@blueprintjs/core";
 import { DrawerButton } from "../../components/drawer-button";
+import { Footer } from "../../components/footer";
 
 interface IState extends IControlOptions {
   isOpen: boolean;
@@ -19,7 +20,8 @@ export class SimplePage extends React.PureComponent<any, IState> {
     this.state = {
       isOpen: false,
       contentWidth: 800,
-      fixedHeader: false,
+      fixedHeader: true,
+      fixedSidebar: true,
     };
   }
 
@@ -32,7 +34,7 @@ export class SimplePage extends React.PureComponent<any, IState> {
       //     </Layout>
       //   </MasterPage>
       <React.Fragment>
-        <Layout sidebar={<Sidebar />} header={<Header />} {...options}>
+        <Layout sidebar={<Sidebar />} header={<Header />} footer={<Footer />} {...options}>
           <Content />
         </Layout>
         <DrawerButton onClick={this.onOpen} />
