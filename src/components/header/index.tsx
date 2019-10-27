@@ -6,6 +6,7 @@ import classNames from "classnames";
 export interface HeaderProps {
     fixed?: boolean;
     fixedHeigth: number;
+    contentStyle?: React.CSSProperties;
 }
 
 export class Header extends React.PureComponent<HeaderProps> {
@@ -22,7 +23,9 @@ export class Header extends React.PureComponent<HeaderProps> {
                 })}
                 style={style}
             >
-                {children ? <div>{children}</div> : <EmptyBox>Header</EmptyBox>}
+                <div className="layout__header__content">
+                    {children ? <div>{children}</div> : <EmptyBox>Header</EmptyBox>}
+                </div>
             </div>
         );
     }

@@ -7,7 +7,7 @@ import { Content } from "../../components/content";
 export class SimplePage extends React.PureComponent {
   public render(): React.ReactNode {
     return (
-      <Layout sidebar={<Sidebar />} footer="Footer">
+      <Layout contentWidth={600} sidebar={<Sidebar />} footer="Footer">
         <Content />
       </Layout>
     );
