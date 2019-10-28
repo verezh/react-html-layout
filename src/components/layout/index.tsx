@@ -7,7 +7,6 @@ import { Footer } from "../footer";
 
 export interface LayoutProps {
     // header -------------------------------------------------
-
     /**
      * Header content.
      */
@@ -53,6 +52,11 @@ export interface LayoutProps {
     // sidebar?: ReactNode;
     // fixedSidebar?: boolean;
     // sidebarWidth?: number;
+    // other -------------------------------------------------
+    /**
+     * Content of the page.
+     */
+    content?: React.ReactNode;
 }
 
 export class Layout extends React.PureComponent<LayoutProps> {
@@ -73,7 +77,8 @@ export class Layout extends React.PureComponent<LayoutProps> {
             // sidebar
             // sidebar,
             // fixedSidebar,
-            // sidebarWidth
+            // sidebarWidth,
+            content,
         } = this.props;
         const contentStyle: React.CSSProperties = {};
         // const sidebarStyle: React.CSSProperties = {
@@ -103,7 +108,7 @@ export class Layout extends React.PureComponent<LayoutProps> {
                         {sidebar === "" ? <EmptyBox>Sidebar</EmptyBox> : <div>{sidebar}</div>}
                     </div> */}
                     <div className="rhl-layout__body__content">
-                        <div>{children}</div>
+                        <div>{content || children}</div>
                     </div>
                 </div>
                 <div className="rhl-layout__footer">
