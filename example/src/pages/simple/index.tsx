@@ -25,10 +25,10 @@ export class SimplePage extends React.PureComponent<any, State> {
         const { isOpen, ...options } = this.state;
         return (
             <React.Fragment>
-                <Layout header={undefined} footer={undefined} {...options}>
-                    <Content />
+                <Layout header={<div>Header</div>} footer={<div>Footer</div>}>
+                    <div>Content</div>
                 </Layout>
-                <DrawerButton onClick={this.onOpen} />
+                {/* <DrawerButton onClick={this.onOpen} /> */}
                 <Drawer isOpen={isOpen} canOutsideClickClose={true} onClose={this.onOpen} position="left" size={250}>
                     <ControlPanel {...options} onChange={this.onSidebarChange} />
                 </Drawer>
