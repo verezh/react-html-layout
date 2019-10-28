@@ -12,12 +12,12 @@ export default [
             typescript({
                 typescript: require('typescript'),
             }),
-            scss({
-                output: function(styles, styleNodes) {
-                    fs.writeFileSync('dist/index.css', styles);
-                    fs.writeFileSync('example/src/react-html-layout/index.css', styles);
-                },
-            }),
+            // scss({
+            //     output: function(styles, styleNodes) {
+            //         fs.writeFileSync('dist/index.css', styles);
+            //         fs.writeFileSync('example/src/react-html-layout/index.css', styles);
+            //     },
+            // }),
         ],
         output: [
             { file: pkg.main, format: 'cjs' },

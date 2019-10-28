@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.scss";
+// import "./index.scss";
 import classNames from "classnames";
 import { StyleConstants } from "../../constants";
 
@@ -9,6 +9,21 @@ export interface HeaderProps {
     className?: string;
     style?: React.CSSProperties;
 }
+
+export const rootStyle: React.CSSProperties = {
+    flex: 1,
+};
+
+export const rootFixedStyle: React.CSSProperties = {
+    display: "flex",
+};
+
+export const rootFixedContenStyle: React.CSSProperties = {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100%",
+};
 
 export class Header extends React.PureComponent<HeaderProps> {
     private defaultStyle: React.CSSProperties = {
@@ -23,17 +38,17 @@ export class Header extends React.PureComponent<HeaderProps> {
 
         return fixed === true ? (
             <div
-                className="rhl-header-fixed"
                 style={{
+                    ...rootFixedStyle,
                     height: fixedHeigth ? fixedHeigth : StyleConstants.DEFAULT_HEADER_HEIGHT,
                 }}
             >
-                <div className={classNames("rhl-header-fixed__content", className)} style={headerStyle}>
+                <div className={classNames(className)} style={{ ...rootFixedContenStyle, ...headerStyle }}>
                     {children}
                 </div>
             </div>
         ) : (
-            <div className={classNames("rhl-header", className)} style={headerStyle}>
+            <div className={classNames(className)} style={{ ...rootStyle, ...headerStyle }}>
                 {children}
             </div>
         );

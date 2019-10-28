@@ -1,9 +1,9 @@
 import React, { ReactNode } from "react";
-import "./index.scss";
 import { Header } from "../header";
-import classnames from "classnames";
 import { StyleConstants } from "../../constants";
 import { Footer } from "../footer";
+// import styled from "styled-components";
+// import "./index.scss";
 
 export interface LayoutProps {
     // header -------------------------------------------------
@@ -59,6 +59,19 @@ export interface LayoutProps {
     content?: React.ReactNode;
 }
 
+const rootStyle: React.CSSProperties = {
+    position: "relative",
+    display: "flex",
+    height: "100vh",
+    flexDirection: "column",
+};
+const rootHeaderStyle: React.CSSProperties = {
+    display: "flex",
+};
+const rootFooterStyle: React.CSSProperties = {
+    display: "flex",
+};
+
 export class Layout extends React.PureComponent<LayoutProps> {
     public render(): React.ReactNode {
         const {
@@ -80,7 +93,7 @@ export class Layout extends React.PureComponent<LayoutProps> {
             // sidebarWidth,
             content,
         } = this.props;
-        const contentStyle: React.CSSProperties = {};
+        // const contentStyle: React.CSSProperties = {};
         // const sidebarStyle: React.CSSProperties = {
         //     width: sidebarWidth ? sidebarWidth : StyleConstants.DEFAULT_SIDEBAR_WIDTH,
         // };
@@ -92,8 +105,8 @@ export class Layout extends React.PureComponent<LayoutProps> {
         //     sidebarStyle.position;
         // }
         return (
-            <div className={classnames("rhl-layout")}>
-                <div className="rhl-layout__header">
+            <div style={rootStyle}>
+                <div style={rootHeaderStyle}>
                     <Header
                         fixed={fixedHeader}
                         className={headerClassName}
@@ -103,15 +116,15 @@ export class Layout extends React.PureComponent<LayoutProps> {
                         {header}
                     </Header>
                 </div>
-                <div className="rhl-layout__body" style={contentStyle}>
+                <div className="rhl-layout__body" style={{ display: "flex", flex: 1 }}>
                     {/* <div className="rhl-layout__body__sidebar" style={sidebarStyle}>
                         {sidebar === "" ? <EmptyBox>Sidebar</EmptyBox> : <div>{sidebar}</div>}
                     </div> */}
-                    <div className="rhl-layout__body__content">
+                    <div style={{ display: "flex", flex: 1 }}>
                         <div>{content || children}</div>
                     </div>
                 </div>
-                <div className="rhl-layout__footer">
+                <div style={rootFooterStyle}>
                     <Footer
                         fixed={fixedFooter}
                         className={footerClassName}

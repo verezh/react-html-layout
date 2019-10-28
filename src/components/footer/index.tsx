@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.scss";
+// import "./index.scss";
 import classNames from "classnames";
 import { StyleConstants } from "../../constants";
 
@@ -9,6 +9,21 @@ export interface FooterProps {
     className?: string;
     style?: React.CSSProperties;
 }
+
+export const rootStyle: React.CSSProperties = {
+    flex: 1,
+};
+
+export const rootFixedStyle: React.CSSProperties = {
+    display: "flex",
+};
+
+export const rootFixedContenStyle: React.CSSProperties = {
+    position: "fixed",
+    bottom: 0,
+    left: 0,
+    width: "100%",
+};
 
 export class Footer extends React.PureComponent<FooterProps> {
     private defaultStyle: React.CSSProperties = {
@@ -23,17 +38,17 @@ export class Footer extends React.PureComponent<FooterProps> {
 
         return fixed === true ? (
             <div
-                className="rhl-footer-fixed"
                 style={{
+                    ...rootFixedStyle,
                     height: fixedHeigth ? fixedHeigth : StyleConstants.DEFAULT_HEADER_HEIGHT,
                 }}
             >
-                <div className={classNames("rhl-footer-fixed__content", className)} style={headerStyle}>
+                <div className={classNames(className)} style={{ ...rootFixedContenStyle, ...headerStyle }}>
                     {children}
                 </div>
             </div>
         ) : (
-            <div className={classNames("rhl-footer", className)} style={headerStyle}>
+            <div className={classNames(className)} style={{ ...rootStyle, ...headerStyle }}>
                 {children}
             </div>
         );
