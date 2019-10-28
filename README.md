@@ -40,13 +40,13 @@ import { Layout } from 'react-html-layout';
 </Layout>
 ```
 
-<p style="text-align:center;">
+<div align="center">
     <img style="width:400px" src='./images/layout-example-1.png'>
-</p>
+</div>
 
 -   [`header`](#header) and [`footer`](#footer) already contains default styles. For instance, header's styles can be overwitten with [`headerStyle`](#headerstyle) or [`headerClassName`](#headerclassname) properties.
 -   Layout occupies whole visible page space, that's because it's heigth is `100vh`. The [`footer`](#footer) is always on the bottom of the page.
--   To make [`header`](#header) or [`footer`](#footer) fixed use [`fixedHeader`](#fixedheader) or [`fixedFooter`](#fixedfooter) properties.
+-   To make [`header`](#header) or [`footer`](#footer) fixed, use [`fixedHeader`](#fixedheader) or [`fixedFooter`](#fixedfooter) properties.
 -   If [`header`](#header) is fixed it's default heigth is `50px`. To change this value use [`fixedHeaderHeigth`](#fixedheaderheigth).
 
 ## Options

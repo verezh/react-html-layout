@@ -1,6 +1,4 @@
 import React from "react";
-// import "./index.scss";
-import classNames from "classnames";
 import { StyleConstants } from "../../constants";
 
 export interface HeaderProps {
@@ -43,12 +41,12 @@ export class Header extends React.PureComponent<HeaderProps> {
                     height: fixedHeigth ? fixedHeigth : StyleConstants.DEFAULT_HEADER_HEIGHT,
                 }}
             >
-                <div className={classNames(className)} style={{ ...rootFixedContenStyle, ...headerStyle }}>
+                <div className={className} style={{ ...rootFixedContenStyle, ...headerStyle }}>
                     {children}
                 </div>
             </div>
         ) : (
-            <div className={classNames(className)} style={{ ...rootStyle, ...headerStyle }}>
+            <div className={className} style={{ ...rootStyle, ...headerStyle }}>
                 {children}
             </div>
         );

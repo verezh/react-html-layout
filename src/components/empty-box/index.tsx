@@ -1,5 +1,4 @@
 import React from "react";
-// import "./index.scss";
 import { ColorProperty } from "csstype";
 
 interface Props {

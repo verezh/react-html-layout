@@ -1,17 +1,14 @@
 {
     "name": "react-html-layout",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "main": "dist/index.js",
     "module": "dist/index.esm.js",
     "types": "dist/index.d.ts",
     "devDependencies": {
-        "@types/classnames": "^2.2.9",
         "@types/react": "^16.8.25",
         "@types/react-dom": "^16.8.5",
-        "@types/styled-components": "^4.1.20",
         "@typescript-eslint/eslint-plugin": "^2.0.0",
         "@typescript-eslint/parser": "^2.0.0",
-        "classnames": "^2.2.6",
         "concurrently": "^4.1.1",
         "eslint": "^6.2.0",
         "eslint-config-prettier": "^6.0.0",
@@ -28,8 +25,7 @@
     },
     "peerDependencies": {
         "react": "^16.8.6",
-        "react-dom": "^16.8.6",
-        "styled-components": "^4.3.2"
+        "react-dom": "^16.8.6"
     },
     "scripts": {
         "build": "rollup -c",
@@ -53,7 +49,8 @@
         "layout",
         "header",
         "footer",
-        "content"
+        "content",
+        "typescript"
     ],
     "author": "Vadym Poberezhnyi",
     "license": "ISC",
@@ -64,7 +61,5 @@
     "files": [
         "dist"
     ],
-    "dependencies": {
-        "node-sass": "^4.13.0"
-    }
+    "dependencies": {}
 }

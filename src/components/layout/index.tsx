@@ -2,8 +2,6 @@ import React, { ReactNode } from "react";
 import { Header } from "../header";
 import { StyleConstants } from "../../constants";
 import { Footer } from "../footer";
-// import styled from "styled-components";
-// import "./index.scss";
 
 export interface LayoutProps {
     // header -------------------------------------------------
