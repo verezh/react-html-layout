@@ -1,14 +1,19 @@
-import React from 'react';
-import './index.scss';
-import autobind from 'autobind-decorator';
-import { NumericInput, Switch } from '@blueprintjs/core';
+import React from "react";
+import "./index.scss";
+import autobind from "autobind-decorator";
+import { NumericInput, Switch } from "@blueprintjs/core";
 
 export interface ControlOptions {
+    // header -------------------------
     fixedHeader?: boolean;
     fixedHeaderHeigth?: number;
-    fixedSidebar?: boolean;
-    sidebarWidth?: number;
-    contentWidth?: number;
+    headerClassName?: string;
+    headerStyle?: React.CSSProperties;
+    // footer -------------------------
+    fixedFooter?: boolean;
+    fixedFooterHeigth?: number;
+    footerClassName?: string;
+    footerStyle?: React.CSSProperties;
 }
 
 interface Props extends ControlOptions {
@@ -17,19 +22,22 @@ interface Props extends ControlOptions {
 
 export class ControlPanel extends React.PureComponent<Props> {
     public render(): React.ReactNode {
-        const { contentWidth, fixedHeader } = this.props;
+        const { fixedHeader, fixedFooter } = this.props;
         return (
             <div className="control-panel">
-                <div>
+                {/* <div>
                     Content Width
                     <NumericInput
                         value={contentWidth}
                         placeholder="Enter a number..."
                         onValueChange={this.onContentWidthChange}
                     />
-                </div>
+                </div> */}
                 <div>
                     <Switch checked={fixedHeader} label="Is Fixed Header" onChange={this.onFixedHeaderChange} />
+                </div>
+                <div>
+                    <Switch checked={fixedFooter} label="Is Fixed Footer" onChange={this.onFixedFooterChange} />
                 </div>
             </div>
         );
@@ -38,6 +46,13 @@ export class ControlPanel extends React.PureComponent<Props> {
     @autobind
     private onFixedHeaderChange(e: React.FormEvent<HTMLInputElement>): void {
         this.setState({ fixedHeader: e.currentTarget.checked }, () => {
+            this.onChange();
+        });
+    }
+
+    @autobind
+    private onFixedFooterChange(e: React.FormEvent<HTMLInputElement>): void {
+        this.setState({ fixedFooter: e.currentTarget.checked }, () => {
             this.onChange();
         });
     }

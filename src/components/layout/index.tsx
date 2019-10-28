@@ -4,6 +4,7 @@ import "./index.scss";
 import { Header } from "../header";
 import classnames from "classnames";
 import { StyleConstants } from "../../constants";
+import { Footer } from "../footer";
 
 export interface LayoutProps {
     // header -------------------------
@@ -14,6 +15,11 @@ export interface LayoutProps {
     headerStyle?: React.CSSProperties;
     // footer -------------------------
     footer?: ReactNode;
+    fixedFooter?: boolean;
+    fixedFooterHeigth?: number;
+    footerClassName?: string;
+    footerStyle?: React.CSSProperties;
+    // sidebar -------------------------
     sidebar?: ReactNode;
     fixedSidebar?: boolean;
     sidebarWidth?: number;
@@ -24,12 +30,19 @@ export class Layout extends React.PureComponent<LayoutProps> {
     public render(): React.ReactNode {
         const {
             children,
+            // header
             header,
-            footer,
-            sidebar,
             fixedHeader,
             fixedHeaderHeigth,
             sidebarWidth,
+            // footer
+            footer,
+            fixedFooter,
+            fixedFooterHeigth,
+            footerClassName,
+            footerStyle,
+            // sidebar
+            sidebar,
             fixedSidebar,
             contentWidth,
         } = this.props;
@@ -59,7 +72,11 @@ export class Layout extends React.PureComponent<LayoutProps> {
                         {children ? <div>{children}</div> : <EmptyBox>Content</EmptyBox>}
                     </div>
                 </div>
-                <div className="rhl-layout__footer">{footer ? <div>{footer}</div> : <EmptyBox>Footer</EmptyBox>}</div>
+                <div className="rhl-layout__footer">
+                    <Footer fixed={fixedFooter} fixedHeigth={fixedFooterHeigth || StyleConstants.DEFAULT_FOOTER_HEIGHT}>
+                        {footer}
+                    </Footer>
+                </div>
             </div>
         );
     }

@@ -3,16 +3,16 @@ import "./index.scss";
 import classNames from "classnames";
 import { StyleConstants } from "../../constants";
 
-export interface HeaderProps {
+export interface FooterProps {
     fixed?: boolean;
     fixedHeigth: number;
     className?: string;
     style?: React.CSSProperties;
 }
 
-export class Header extends React.PureComponent<HeaderProps> {
+export class Footer extends React.PureComponent<FooterProps> {
     private defaultStyle: React.CSSProperties = {
-        backgroundColor: "rgb(85, 112, 151)",
+        backgroundColor: "#333",
         height: 50,
         color: "white",
     };
@@ -23,17 +23,17 @@ export class Header extends React.PureComponent<HeaderProps> {
 
         return fixed === true ? (
             <div
-                className="rhl-header-fixed"
+                className="rhl-footer-fixed"
                 style={{
                     height: fixedHeigth ? fixedHeigth : StyleConstants.DEFAULT_HEADER_HEIGHT,
                 }}
             >
-                <div className={classNames("rhl-header-fixed__content", className)} style={headerStyle}>
+                <div className={classNames("rhl-footer-fixed__content", className)} style={headerStyle}>
                     {children}
                 </div>
             </div>
         ) : (
-            <div className={classNames("rhl-header", className)} style={headerStyle}>
+            <div className={classNames("rhl-footer", className)} style={headerStyle}>
                 {children}
             </div>
         );

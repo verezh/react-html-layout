@@ -17,9 +17,8 @@ export class SimplePage extends React.PureComponent<any, State> {
         super(props);
         this.state = {
             isOpen: false,
-            contentWidth: 800,
             fixedHeader: true,
-            fixedSidebar: true,
+            fixedFooter: false,
         };
     }
 
@@ -27,7 +26,7 @@ export class SimplePage extends React.PureComponent<any, State> {
         const { isOpen, ...options } = this.state;
         return (
             <React.Fragment>
-                <Layout sidebar={<Sidebar />} header={undefined} footer={<Footer />} {...options}>
+                <Layout header={undefined} footer={undefined} {...options}>
                     <Content />
                 </Layout>
                 <DrawerButton onClick={this.onOpen} />

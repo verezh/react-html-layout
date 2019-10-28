@@ -4,7 +4,7 @@ import './index.scss';
 export class Sidebar extends React.PureComponent {
     public render(): React.ReactNode {
         const options: string[] = [];
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 50; i++) {
             options.push(`Option ${i}`);
         }
 
