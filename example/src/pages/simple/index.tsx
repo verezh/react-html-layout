@@ -3,10 +3,9 @@ import "./index.scss";
 import { Layout } from "../../react-html-layout";
 import { ControlPanel, ControlOptions } from "../../components/control-panel";
 import autobind from "autobind-decorator";
-import { Sidebar, Content } from "../../components";
+import { Content } from "../../components";
 import { Drawer } from "@blueprintjs/core";
 import { DrawerButton } from "../../components/drawer-button";
-import { Footer } from "../../components/footer";
 
 interface State extends ControlOptions {
     isOpen: boolean;
