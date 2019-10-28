@@ -1,6 +1,6 @@
-import React from "react";
-import "./index.scss";
-import { ColorProperty } from "csstype";
+import React from 'react';
+import './index.scss';
+import { ColorProperty } from 'csstype';
 
 // tslint:disable-next-line:interface-name
 interface Props {

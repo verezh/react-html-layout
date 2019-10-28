@@ -1,14 +1,8 @@
-import React, { ReactNode } from "react";
-import styled from "styled-components";
-import { EmptyBox } from "../empty-box";
-import "./index.scss";
-import { Header } from "../header";
-import classnames from "classnames";
-
-// const Wrapper = styled.div`
-//   padding: 10px;
-//   color: red;
-// `;
+import React, { ReactNode } from 'react';
+import { EmptyBox } from '../empty-box';
+import './index.scss';
+import { Header } from '../header';
+import classnames from 'classnames';
 
 export interface LayoutProps {
     header?: ReactNode;
@@ -21,8 +15,8 @@ export interface LayoutProps {
     contentWidth?: number;
 }
 
-const DEFAULT_HEADER_HEIGHT: number = 50;
-const DEFAULT_SIDEBAR_WIDTH: number = 200;
+const DEFAULT_HEADER_HEIGHT = 50;
+const DEFAULT_SIDEBAR_WIDTH = 200;
 
 export class Layout extends React.PureComponent<LayoutProps> {
     public render(): React.ReactNode {
@@ -47,19 +41,19 @@ export class Layout extends React.PureComponent<LayoutProps> {
         }
         if (contentWidth) {
             contentStyle.maxWidth = contentWidth;
-            contentStyle.margin = "0 auto";
+            contentStyle.margin = '0 auto';
         }
         if (fixedSidebar) {
-            sidebarStyle.position
+            sidebarStyle.position;
         }
         return (
-            <div className={classnames("layout")} style={rootStyle}>
+            <div className={classnames('layout')} style={rootStyle}>
                 <Header fixed={fixedHeader} fixedHeigth={fixedHeaderHeigth || DEFAULT_HEADER_HEIGHT}>
                     {header}
                 </Header>
                 <div className="layout__body" style={contentStyle}>
                     <div className="layout__body__sidebar" style={sidebarStyle}>
-                        {sidebar === "" ? <EmptyBox>Sidebar</EmptyBox> : <div>{sidebar}</div>}
+                        {sidebar === '' ? <EmptyBox>Sidebar</EmptyBox> : <div>{sidebar}</div>}
                     </div>
                     <div className="layout__body__content">
                         {children ? <div>{children}</div> : <EmptyBox>Content</EmptyBox>}

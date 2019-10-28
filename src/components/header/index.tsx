@@ -1,7 +1,7 @@
-import React from "react";
-import { EmptyBox } from "../empty-box";
-import "./index.scss";
-import classNames from "classnames";
+import React from 'react';
+import { EmptyBox } from '../empty-box';
+import './index.scss';
+import classNames from 'classnames';
 
 export interface HeaderProps {
     fixed?: boolean;
@@ -18,8 +18,8 @@ export class Header extends React.PureComponent<HeaderProps> {
         }
         return (
             <div
-                className={classNames("layout__header", {
-                    "layout__header--fixed": fixed,
+                className={classNames('layout__header', {
+                    'layout__header--fixed': fixed,
                 })}
                 style={style}
             >
