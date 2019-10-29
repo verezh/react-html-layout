@@ -1,2 +1,2 @@
 export { Layout, LayoutProps } from "./layout";
-export { ContentWidth, ContentWidthProps } from "./content-width";
+export { WideContent, WideContentProps } from "./wide-content";

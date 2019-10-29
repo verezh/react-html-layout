@@ -118,7 +118,7 @@ export class Layout extends React.PureComponent<LayoutProps> {
                     {/* <div className="rhl-layout__body__sidebar" style={sidebarStyle}>
                         {sidebar === "" ? <EmptyBox>Sidebar</EmptyBox> : <div>{sidebar}</div>}
                     </div> */}
-                    <div style={{ display: "flex", flex: 1 }}>
+                    <div style={{ flex: 1 }}>
                         <div>{content || children}</div>
                     </div>
                 </div>

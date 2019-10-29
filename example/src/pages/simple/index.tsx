@@ -6,6 +6,7 @@ import autobind from "autobind-decorator";
 import { Content } from "../../components";
 import { Drawer } from "@blueprintjs/core";
 import { DrawerButton } from "../../components/drawer-button";
+import { WideContent } from "../../react-html-layout";
 
 interface State extends ControlOptions {
     isOpen: boolean;
@@ -26,7 +27,9 @@ export class SimplePage extends React.PureComponent<any, State> {
         return (
             <React.Fragment>
                 <Layout header={undefined} footer={undefined} {...options}>
-                    <Content />
+                    <WideContent width={800}>
+                        <Content />
+                    </WideContent>
                 </Layout>
                 {/* <Layout header={<div>Header</div>} footer={<div>Footer</div>}>
                     <div>Content</div>

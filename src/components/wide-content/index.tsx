@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface ContentWidthProps {
+export interface WideContentProps {
     width?: number;
     children?: React.ReactNode;
 }
@@ -10,10 +10,10 @@ const rootStyle: React.CSSProperties = {
     marginRight: "auto",
 };
 
-export class ContentWidth extends React.PureComponent<ContentWidthProps> {
+export class WideContent extends React.PureComponent<WideContentProps> {
     public render(): React.ReactNode {
         const { width, children } = this.props;
-        const style = { rootStyle, width };
+        const style: React.CSSProperties = { ...rootStyle, width };
         return <div style={style}>{children}</div>;
     }
 }
