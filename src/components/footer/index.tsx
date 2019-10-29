@@ -8,15 +8,15 @@ export interface FooterProps {
     style?: React.CSSProperties;
 }
 
-export const rootStyle: React.CSSProperties = {
+const rootStyle: React.CSSProperties = {
     flex: 1,
 };
 
-export const rootFixedStyle: React.CSSProperties = {
+const rootFixedStyle: React.CSSProperties = {
     display: "flex",
 };
 
-export const rootFixedContenStyle: React.CSSProperties = {
+const rootFixedContenStyle: React.CSSProperties = {
     position: "fixed",
     bottom: 0,
     left: 0,
