@@ -12,6 +12,9 @@ export default [
             typescript({
                 typescript: require('typescript'),
             }),
+            scss({
+                output: false,
+            }),
             // scss({
             //     output: function(styles, styleNodes) {
             //         fs.writeFileSync('dist/index.css', styles);
