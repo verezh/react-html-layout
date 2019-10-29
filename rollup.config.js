@@ -1,7 +1,7 @@
 import typescript from 'rollup-plugin-typescript2';
 import scss from 'rollup-plugin-scss';
 import pkg from './package.json';
-import fs from 'fs';
+// import fs from 'fs';
 
 export default [
     {
