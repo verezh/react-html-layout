@@ -55,9 +55,17 @@ import { Layout } from 'react-html-layout';
 
     Root class name.
 
-#### styles
+#### style
 
-    Root styles.
+    Root style.
+
+#### contentClassName
+
+    Content class name.
+
+#### contentStyles
+
+    Content style.
 
 #### header
 

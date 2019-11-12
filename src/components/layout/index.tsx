@@ -4,7 +4,7 @@ import { StyleConstants } from '../../constants';
 import { Footer } from '../footer';
 
 export interface LayoutProps {
-    // layout -------------------------------------------------
+    // root -------------------------------------------------
     /**
      * Root class name.
      */
@@ -13,6 +13,15 @@ export interface LayoutProps {
      * Root styles.
      */
     style?: React.CSSProperties;
+    // content -------------------------------------------------
+    /**
+     * Content class name.
+     */
+    contentClassName?: string;
+    /**
+     * Content styles.
+     */
+    contentStyle?: React.CSSProperties;
     // header -------------------------------------------------
     /**
      * Header content.
@@ -86,6 +95,9 @@ export class Layout extends React.PureComponent<LayoutProps> {
             className,
             style,
             // ----------------------------------------------------------
+            contentClassName,
+            contentStyle,
+            // ----------------------------------------------------------
             header,
             fixedHeader,
             fixedHeaderHeigth,
@@ -126,12 +138,14 @@ export class Layout extends React.PureComponent<LayoutProps> {
                         {header}
                     </Header>
                 </div>
-                <div className="rhl-layout__body" style={{ display: 'flex', flex: 1 }}>
-                    {/* <div className="rhl-layout__body__sidebar" style={sidebarStyle}>
+                <div style={{ display: 'flex', flex: 1 }}>
+                    {/* <div style={sidebarStyle}>
                         {sidebar === "" ? <EmptyBox>Sidebar</EmptyBox> : <div>{sidebar}</div>}
                     </div> */}
                     <div style={{ flex: 1 }}>
-                        <div>{content || children}</div>
+                        <div className={contentClassName} style={contentStyle}>
+                            {content || children}
+                        </div>
                     </div>
                 </div>
                 <div style={rootFooterStyle}>
