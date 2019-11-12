@@ -1,9 +1,18 @@
-import React, { ReactNode } from "react";
-import { Header } from "../header";
-import { StyleConstants } from "../../constants";
-import { Footer } from "../footer";
+import React, { ReactNode } from 'react';
+import { Header } from '../header';
+import { StyleConstants } from '../../constants';
+import { Footer } from '../footer';
 
 export interface LayoutProps {
+    // layout -------------------------------------------------
+    /**
+     * Root class name.
+     */
+    className?: string;
+    /**
+     * Root styles.
+     */
+    style?: React.CSSProperties;
     // header -------------------------------------------------
     /**
      * Header content.
@@ -58,22 +67,25 @@ export interface LayoutProps {
 }
 
 const rootStyle: React.CSSProperties = {
-    position: "relative",
-    display: "flex",
-    height: "100vh",
-    flexDirection: "column",
+    position: 'relative',
+    display: 'flex',
+    height: '100vh',
+    flexDirection: 'column',
 };
 const rootHeaderStyle: React.CSSProperties = {
-    display: "flex",
+    display: 'flex',
 };
 const rootFooterStyle: React.CSSProperties = {
-    display: "flex",
+    display: 'flex',
 };
 
 export class Layout extends React.PureComponent<LayoutProps> {
     public render(): React.ReactNode {
         const {
             children,
+            className,
+            style,
+            // ----------------------------------------------------------
             header,
             fixedHeader,
             fixedHeaderHeigth,
@@ -103,7 +115,7 @@ export class Layout extends React.PureComponent<LayoutProps> {
         //     sidebarStyle.position;
         // }
         return (
-            <div style={rootStyle}>
+            <div style={{ ...rootStyle, ...style }} className={className}>
                 <div style={rootHeaderStyle}>
                     <Header
                         fixed={fixedHeader}
@@ -114,7 +126,7 @@ export class Layout extends React.PureComponent<LayoutProps> {
                         {header}
                     </Header>
                 </div>
-                <div className="rhl-layout__body" style={{ display: "flex", flex: 1 }}>
+                <div className="rhl-layout__body" style={{ display: 'flex', flex: 1 }}>
                     {/* <div className="rhl-layout__body__sidebar" style={sidebarStyle}>
                         {sidebar === "" ? <EmptyBox>Sidebar</EmptyBox> : <div>{sidebar}</div>}
                     </div> */}

@@ -1,6 +1,7 @@
 import typescript from 'rollup-plugin-typescript2';
 import scss from 'rollup-plugin-scss';
 import pkg from './package.json';
+import { uglify } from 'rollup-plugin-uglify';
 // import fs from 'fs';
 
 export default [
@@ -14,6 +15,9 @@ export default [
             }),
             scss({
                 output: false,
+            }),
+            uglify({
+                nameCache: {},
             }),
             // scss({
             //     output: function(styles, styleNodes) {
