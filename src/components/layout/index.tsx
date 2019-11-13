@@ -142,10 +142,8 @@ export class Layout extends React.PureComponent<LayoutProps> {
                     {/* <div style={sidebarStyle}>
                         {sidebar === "" ? <EmptyBox>Sidebar</EmptyBox> : <div>{sidebar}</div>}
                     </div> */}
-                    <div style={{ flex: 1 }}>
-                        <div className={contentClassName} style={contentStyle}>
-                            {content || children}
-                        </div>
+                    <div className={contentClassName} style={contentStyle}>
+                        {content || children}
                     </div>
                 </div>
                 <div style={rootFooterStyle}>
