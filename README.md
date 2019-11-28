@@ -1,6 +1,6 @@
 # react-html-layout
 
-Layout for react page.
+Basic react page layout.
 
 <a href="https://www.npmjs.com/package/react-html-layout">
     <img src="https://nodei.co/npm/react-html-layout.png?mini=true">
