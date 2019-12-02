@@ -51,62 +51,20 @@ import { Layout } from 'react-html-layout';
 
 ## Options
 
-#### className
-
-    Root class name.
-
-#### style
-
-    Root style.
-
-#### contentClassName
-
-    Content class name.
-
-#### contentStyles
-
-    Content style.
-
-#### header
-
-    Header content.
-
-#### fixedHeader
-
-    Toggles the header to has fixed position.
-
-#### fixedHeaderHeigth
-
-    Heigth of the fixed header.
-
-#### headerClassName
-
-    Header class name.
-
-#### headerStyle
-
-    Header styles.
-
-#### footer
-
-    Footer content.
-
-#### fixedFooter
-
-    Toggles the footer to has fixed position.
-
-#### fixedFooterHeigth
-
-    Heigth of the fixed footer.
-
-#### footerClassName
-
-    Footer class name.
-
-#### footerStyle
-
-    Footer styles.
-
-#### content
-
-    Content of the page.
+| Name                | Description                              |
+| ------------------- | ---------------------------------------- |
+| `className`         | Root class name                          |
+| `style`             | Root style                               |
+| `contentClassName`  | Content class name                       |
+| `contentStyles`     | Content style                            |
+| `header`            | Header content                           |
+| `fixedHeader`       | Toggles the header to has fixed position |
+| `fixedHeaderHeigth` | Heigth of the fixed header               |
+| `headerClassName`   | Header class name                        |
+| `headerStyle`       | Header styles                            |
+| `footer`            | Footer content                           |
+| `fixedFooter`       | Toggles the footer to has fixed position |
+| `fixedFooterHeigth` | Heigth of the fixed footer               |
+| `footerClassName`   | Footer class name                        |
+| `footerStyle`       | Footer styles                            |
+| `content`           | Content of the page                      |
