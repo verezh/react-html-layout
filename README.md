@@ -6,12 +6,6 @@ Basic react page layout.
     <img src="https://nodei.co/npm/react-html-layout.png?mini=true">
 </a>
 
-## Glossary
-
--   [Usage](#usage)
--   [Layout](#layout)
--   [ContentWrapper](#contentwrapper)
-
 ## Usage
 
 ### Installation:
@@ -31,6 +25,11 @@ body {
     padding: 0;
 }
 ```
+
+## Glossary
+
+-   [Layout](#layout)
+-   [ContentWrapper](#contentwrapper)
 
 ## Layout
 
