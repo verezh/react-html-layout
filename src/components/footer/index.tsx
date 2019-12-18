@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleConstants } from "../../constants";
+import React from 'react';
+import { StyleConstants } from '../../constants';
 
 export interface FooterProps {
     fixed?: boolean;
@@ -13,21 +13,21 @@ const rootStyle: React.CSSProperties = {
 };
 
 const rootFixedStyle: React.CSSProperties = {
-    display: "flex",
+    display: 'flex',
 };
 
 const rootFixedContenStyle: React.CSSProperties = {
-    position: "fixed",
+    position: 'fixed',
     bottom: 0,
     left: 0,
-    width: "100%",
+    width: '100%',
 };
 
 export class Footer extends React.PureComponent<FooterProps> {
     private defaultStyle: React.CSSProperties = {
-        backgroundColor: "#333",
-        height: 50,
-        color: "white",
+        backgroundColor: '#333',
+        // height: 50,
+        color: 'white',
     };
 
     public render(): React.ReactNode {
@@ -41,7 +41,14 @@ export class Footer extends React.PureComponent<FooterProps> {
                     height: fixedHeigth ? fixedHeigth : StyleConstants.DEFAULT_HEADER_HEIGHT,
                 }}
             >
-                <div className={className} style={{ ...rootFixedContenStyle, ...headerStyle }}>
+                <div
+                    className={className}
+                    style={{
+                        ...rootFixedContenStyle,
+                        ...headerStyle,
+                        height: fixedHeigth ? fixedHeigth : StyleConstants.DEFAULT_HEADER_HEIGHT,
+                    }}
+                >
                     {children}
                 </div>
             </div>

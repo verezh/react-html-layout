@@ -26,22 +26,20 @@ body {
 }
 ```
 
-### Import
+## Layout
 
-```js
+```jsx
 import { Layout } from 'react-html-layout';
-```
 
-### Example
+...
 
-```html
 <Layout header={<div>Header</div>} footer={<div>Footer</div>}>
     <div>Content</div>
 </Layout>
 ```
 
 <div align="center">
-    <img style="width:400px" src='./images/layout-example-1.png'>
+    <img style="width:400px" src='./images/layout.png'>
 </div>
 
 -   [`header`](#header) and [`footer`](#footer) already contains default styles. For instance, header's styles can be overwitten with [`headerStyle`](#headerstyle) or [`headerClassName`](#headerclassname) properties.
@@ -49,22 +47,47 @@ import { Layout } from 'react-html-layout';
 -   To make [`header`](#header) or [`footer`](#footer) fixed, use [`fixedHeader`](#fixedheader) or [`fixedFooter`](#fixedfooter) properties.
 -   If [`header`](#header) is fixed it's default heigth is `50px`. To change this value use [`fixedHeaderHeigth`](#fixedheaderheigth).
 
-## Options
+### Options
 
-| Name                | Description                              |
-| ------------------- | ---------------------------------------- |
-| `className`         | Root class name                          |
-| `style`             | Root style                               |
-| `contentClassName`  | Content class name                       |
-| `contentStyles`     | Content style                            |
-| `header`            | Header content                           |
-| `fixedHeader`       | Toggles the header to has fixed position |
-| `fixedHeaderHeigth` | Heigth of the fixed header               |
-| `headerClassName`   | Header class name                        |
-| `headerStyle`       | Header styles                            |
-| `footer`            | Footer content                           |
-| `fixedFooter`       | Toggles the footer to has fixed position |
-| `fixedFooterHeigth` | Heigth of the fixed footer               |
-| `footerClassName`   | Footer class name                        |
-| `footerStyle`       | Footer styles                            |
-| `content`           | Content of the page                      |
+| Name                  | type                     | Description                                     |
+| --------------------- | ------------------------ | ----------------------------------------------- |
+| `className`           | `string`                 | Root class name                                 |
+| `style`               | `React.CSSProperties`    | Root style                                      |
+| `contentClassName`    | `string`                 | Content class name                              |
+| `contentStyle`        | `React.CSSProperties`    | Content style                                   |
+| `header`              | `React.ReactNode`,`null` | Header content. Set `null` to hide default view |
+| `fixedHeader`         | `boolean`                | Toggles the header to has fixed position        |
+| `fixedHeaderHeigth`   | `number`                 | Heigth of the fixed header                      |
+| `headerClassName`     | `string`                 | Header class name                               |
+| `headerStyle`         | `React.CSSProperties`    | Header styles                                   |
+| `footer`              | `React.ReactNode`,`null` | Footer content. Set `null` to hide default view |
+| `fixedFooter`         | `boolean`                | Toggles the footer to has fixed position        |
+| `fixedFooterHeigth`   | `number`                 | Heigth of the fixed footer                      |
+| `footerClassName`     | `string`                 | Footer class name                               |
+| `footerStyle`         | `React.CSSProperties`    | Footer styles                                   |
+| `content`, `children` | `React.ReactNode`        | Content of the page                             |
+
+## ContentWrapper
+
+Centralized content with fixed width
+
+```jsx
+import { ContentWrapper } from 'react-html-layout';
+
+...
+
+<ContentWrapper width={300}>
+    Content example. Content example. Content example.
+</ContentWrapper>
+```
+
+<div align="center">
+    <img style="width:400px" src='./images/content-wrapper.png'>
+</div>
+
+### Options
+
+| Name       | type              | Description                |
+| ---------- | ----------------- | -------------------------- |
+| `width`    | `number`          | Heigth of the fixed header |
+| `children` | `React.ReactNode` | Content                    |

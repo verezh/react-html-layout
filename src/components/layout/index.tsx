@@ -126,24 +126,30 @@ export class Layout extends React.PureComponent<LayoutProps> {
         // if (fixedSidebar) {
         //     sidebarStyle.position;
         // }
+        const contextElement = content || children;
+
+        const defaultHeader = header === undefined;
+        const defaultFooter = footer === undefined;
         return (
             <div style={{ ...rootStyle, ...style }} className={className}>
-                <div style={rootHeaderStyle}>
-                    <Header
-                        fixed={fixedHeader}
-                        className={headerClassName}
-                        style={headerStyle}
-                        fixedHeigth={fixedHeaderHeigth || StyleConstants.DEFAULT_HEADER_HEIGHT}
-                    >
-                        {header}
-                    </Header>
-                </div>
+                {header !== null ? (
+                    <div style={rootHeaderStyle}>
+                        <Header
+                            fixed={fixedHeader}
+                            className={headerClassName}
+                            style={headerStyle}
+                            fixedHeigth={fixedHeaderHeigth || StyleConstants.DEFAULT_HEADER_HEIGHT}
+                        >
+                            {defaultHeader ? 'Header' : header}
+                        </Header>
+                    </div>
+                ) : null}
                 <div style={{ display: 'flex', flex: 1 }}>
                     {/* <div style={sidebarStyle}>
                         {sidebar === "" ? <EmptyBox>Sidebar</EmptyBox> : <div>{sidebar}</div>}
                     </div> */}
-                    <div className={contentClassName} style={contentStyle}>
-                        {content || children}
+                    <div className={contentClassName} style={{ flex: 1, ...contentStyle }}>
+                        {contextElement === undefined ? 'Context' : contextElement}
                     </div>
                 </div>
                 <div style={rootFooterStyle}>
@@ -153,7 +159,7 @@ export class Layout extends React.PureComponent<LayoutProps> {
                         style={footerStyle}
                         fixedHeigth={fixedFooterHeigth || StyleConstants.DEFAULT_FOOTER_HEIGHT}
                     >
-                        {footer}
+                        {defaultFooter ? <div style={{ height: 50 }}>Footer</div> : footer}
                     </Footer>
                 </div>
             </div>

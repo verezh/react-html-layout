@@ -10,7 +10,7 @@ const rootStyle: React.CSSProperties = {
     marginRight: "auto",
 };
 
-export class WideContent extends React.PureComponent<WideContentProps> {
+export class ContentWrapper extends React.PureComponent<WideContentProps> {
     public render(): React.ReactNode {
         const { width, children } = this.props;
         const style: React.CSSProperties = { ...rootStyle, width };
