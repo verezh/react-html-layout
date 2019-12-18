@@ -30,9 +30,7 @@ body {
 
 ```jsx
 import { Layout } from 'react-html-layout';
-
 ...
-
 <Layout header={<div>Header</div>} footer={<div>Footer</div>}>
     <div>Content</div>
 </Layout>
@@ -73,9 +71,7 @@ Centralized content with fixed width
 
 ```jsx
 import { ContentWrapper } from 'react-html-layout';
-
 ...
-
 <ContentWrapper width={300}>
     Content example. Content example. Content example.
 </ContentWrapper>
