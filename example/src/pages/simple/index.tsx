@@ -19,7 +19,7 @@ export class SimplePage extends React.PureComponent<any, State> {
             isOpen: false,
             fixedHeader: true,
             fixedFooter: false,
-            fixedFooterHeigth: 50
+            // fixedFooterHeigth: 50
         };
     }
 

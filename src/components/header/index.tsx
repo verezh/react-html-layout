@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleConstants } from "../../constants";
+import React from 'react';
+import { HorizontalPanel } from '../horizontal-panel';
 
 export interface HeaderProps {
     fixed?: boolean;
@@ -8,47 +8,24 @@ export interface HeaderProps {
     style?: React.CSSProperties;
 }
 
-const rootStyle: React.CSSProperties = {
-    flex: 1,
-};
-
-const rootFixedStyle: React.CSSProperties = {
-    display: "flex",
-};
-
 const rootFixedContenStyle: React.CSSProperties = {
-    position: "fixed",
+    position: 'fixed',
     top: 0,
     left: 0,
-    width: "100%",
+    width: '100%',
 };
 
-export class Header extends React.PureComponent<HeaderProps> {
-    private defaultStyle: React.CSSProperties = {
-        backgroundColor: "rgb(85, 112, 151)",
-        height: 50,
-        color: "white",
-    };
+const defaultStyle: React.CSSProperties = {
+    backgroundColor: 'rgb(85, 112, 151)',
+    // height: 50,
+    color: 'white',
+};
 
-    public render(): React.ReactNode {
-        const { children, fixed, fixedHeigth, className, style } = this.props;
-        const headerStyle = { ...this.defaultStyle, ...style };
-
-        return fixed === true ? (
-            <div
-                style={{
-                    ...rootFixedStyle,
-                    height: fixedHeigth ? fixedHeigth : StyleConstants.DEFAULT_HEADER_HEIGHT,
-                }}
-            >
-                <div className={className} style={{ ...rootFixedContenStyle, ...headerStyle }}>
-                    {children}
-                </div>
-            </div>
-        ) : (
-            <div className={className} style={{ ...rootStyle, ...headerStyle }}>
-                {children}
-            </div>
-        );
-    }
-}
+export const Header: React.FC<HeaderProps> = props => {
+    const { children, style, ...restProps } = props;
+    return (
+        <HorizontalPanel style={{ ...defaultStyle, ...style }} fixedContentStyle={rootFixedContenStyle} {...restProps}>
+            {children}
+        </HorizontalPanel>
+    );
+};
