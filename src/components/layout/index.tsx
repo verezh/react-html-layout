@@ -37,9 +37,17 @@ export interface LayoutProps {
      */
     leftSidebar?: ReactNode;
     /**
+     * Left Sidebar style.
+     */
+    leftSidebarStyle?: React.CSSProperties;
+    /**
      * Right Sidebar content.
      */
     rightSidebar?: ReactNode;
+    /**
+     * Right Sidebar style.
+     */
+    rightSidebarStyle?: React.CSSProperties;
     /**
      * Toggles left or/and right sidebar to has fixed position.
      */
@@ -71,7 +79,9 @@ export const Layout: React.FC<LayoutProps> = props => {
         fixedFooter: showFixedFooter,
         // ----------------------------------------------------------
         leftSidebar,
+        leftSidebarStyle,
         rightSidebar,
+        rightSidebarStyle,
         fixedSidebar: showFixedSidebar,
         // ----------------------------------------------------------
         content,
@@ -140,7 +150,7 @@ export const Layout: React.FC<LayoutProps> = props => {
                     }}
                 >
                     {leftSidebar ? (
-                        <div style={fixedSidebarStyle}>
+                        <div style={{ ...fixedSidebarStyle, ...leftSidebarStyle }}>
                             <Sidebar>{leftSidebar}</Sidebar>
                         </div>
                     ) : null}
@@ -150,7 +160,7 @@ export const Layout: React.FC<LayoutProps> = props => {
                         {contentFooter}
                     </div>
                     {rightSidebar ? (
-                        <div style={fixedSidebarStyle}>
+                        <div style={{ ...fixedSidebarStyle, ...rightSidebarStyle }}>
                             <Sidebar>{rightSidebar}</Sidebar>
                         </div>
                     ) : null}

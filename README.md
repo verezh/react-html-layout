@@ -66,7 +66,9 @@ import { Layout } from 'react-html-layout';
 | `footer`              | `React.ReactNode`     | Footer content.                                        |
 | `fixedFooter`         | `boolean`             | Toggles `footer` to be fixed                           |
 | `leftSidebar`         | `React.ReactNode`     | Left Sidebar content                                   |
+| `leftSidebarStyle`    | `React.CSSProperties` | Left Sidebar style                                     |
 | `rightSidebar`        | `React.ReactNode`     | Right Sidebar content                                  |
+| `rightSidebarStyle`   | `React.CSSProperties` | Right Sidebar style                                    |
 | `fixedSidebar`        | `boolean`             | Toggles `leftSidebar` or/and `rightSidebar to be fixed |
 | `content`, `children` | `React.ReactNode`     | Content of the page                                    |
 
