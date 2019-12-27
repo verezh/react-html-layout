@@ -36,8 +36,12 @@ body {
 ```jsx
 import { Layout } from 'react-html-layout';
 ...
-<Layout header={<div>Header</div>} footer={<div>Footer</div>}>
-    <div>Content</div>
+<Layout
+    header="Header"
+    footer="Footer"
+    leftSidebar="Left Sidebar"
+    rightSidebar="Right Sidebar">
+    Content
 </Layout>
 ```
 
@@ -45,30 +49,26 @@ import { Layout } from 'react-html-layout';
     <img style="width:400px" src='./images/layout.png'>
 </div>
 
--   [`header`](#header) and [`footer`](#footer) already contains default styles. For instance, header's styles can be overwitten with [`headerStyle`](#headerstyle) or [`headerClassName`](#headerclassname) properties.
--   Layout occupies whole visible page space, that's because it's heigth is `100vh`. The [`footer`](#footer) is always on the bottom of the page.
--   To make [`header`](#header) or [`footer`](#footer) fixed, use [`fixedHeader`](#fixedheader) or [`fixedFooter`](#fixedfooter) properties.
--   If [`header`](#header) is fixed it's default heigth is `50px`. To change this value use [`fixedHeaderHeigth`](#fixedheaderheigth).
+-   `header`, `footer`, `leftSidebar`, `rightSidebar` contains default styles if content has `string` type.
+-   Layout occupies whole visible page space, that's because it's heigth is `100vh`.
+-   To make `header` fixed, set `fixedHeader` to `true`.
+-   To make `footer` fixed, set `fixedFooter` to `true`.
+-   To make `leftSidebar` and/or `rightSidebar` fixed, set `fixedSidebar` to `true`.
 
 ### Options
 
-| Name                  | type                     | Description                                     |
-| --------------------- | ------------------------ | ----------------------------------------------- |
-| `className`           | `string`                 | Root class name                                 |
-| `style`               | `React.CSSProperties`    | Root style                                      |
-| `contentClassName`    | `string`                 | Content class name                              |
-| `contentStyle`        | `React.CSSProperties`    | Content style                                   |
-| `header`              | `React.ReactNode`,`null` | Header content. Set `null` to hide default view |
-| `fixedHeader`         | `boolean`                | Toggles the header to has fixed position        |
-| `fixedHeaderHeigth`   | `number`                 | Heigth of the fixed header                      |
-| `headerClassName`     | `string`                 | Header class name                               |
-| `headerStyle`         | `React.CSSProperties`    | Header styles                                   |
-| `footer`              | `React.ReactNode`,`null` | Footer content. Set `null` to hide default view |
-| `fixedFooter`         | `boolean`                | Toggles the footer to has fixed position        |
-| `fixedFooterHeigth`   | `number`                 | Heigth of the fixed footer                      |
-| `footerClassName`     | `string`                 | Footer class name                               |
-| `footerStyle`         | `React.CSSProperties`    | Footer styles                                   |
-| `content`, `children` | `React.ReactNode`        | Content of the page                             |
+| Name                  | type                  | Description                                            |
+| --------------------- | --------------------- | ------------------------------------------------------ |
+| `className`           | `string`              | Root class name                                        |
+| `style`               | `React.CSSProperties` | Root style                                             |
+| `header`              | `React.ReactNode`     | Header content.                                        |
+| `fixedHeader`         | `boolean`             | Toggles `header` to be fixed                           |
+| `footer`              | `React.ReactNode`     | Footer content.                                        |
+| `fixedFooter`         | `boolean`             | Toggles `footer` to be fixed                           |
+| `leftSidebar`         | `React.ReactNode`     | Left Sidebar content                                   |
+| `rightSidebar`        | `React.ReactNode`     | Right Sidebar content                                  |
+| `fixedSidebar`        | `boolean`             | Toggles `leftSidebar` or/and `rightSidebar to be fixed |
+| `content`, `children` | `React.ReactNode`     | Content of the page                                    |
 
 ## ContentWrapper
 

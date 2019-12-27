@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Header } from '../header';
-import { StyleConstants } from '../../constants';
 import { Footer } from '../footer';
+import { Sidebar } from '../sidebar';
 
 export interface LayoutProps {
     // root -------------------------------------------------
@@ -13,15 +13,6 @@ export interface LayoutProps {
      * Root styles.
      */
     style?: React.CSSProperties;
-    // content -------------------------------------------------
-    /**
-     * Content class name.
-     */
-    contentClassName?: string;
-    /**
-     * Content styles.
-     */
-    contentStyle?: React.CSSProperties;
     // header -------------------------------------------------
     /**
      * Header content.
@@ -31,18 +22,6 @@ export interface LayoutProps {
      * Toggles the header to has fixed position.
      */
     fixedHeader?: boolean;
-    /**
-     * Heigth of the fixed header.
-     */
-    fixedHeaderHeigth?: number;
-    /**
-     * Header class name.
-     */
-    headerClassName?: string;
-    /**
-     * Header styles.
-     */
-    headerStyle?: React.CSSProperties;
     // footer -------------------------------------------------
     /**
      * Footer content.
@@ -52,22 +31,19 @@ export interface LayoutProps {
      * Toggles the footer to has fixed position.
      */
     fixedFooter?: boolean;
-    /**
-     * Heigth of the fixed footer.
-     */
-    fixedFooterHeigth?: number;
-    /**
-     * Footer class name.
-     */
-    footerClassName?: string;
-    /**
-     * Footer styles.
-     */
-    footerStyle?: React.CSSProperties;
     // sidebar -------------------------------------------------
-    // sidebar?: ReactNode;
-    // fixedSidebar?: boolean;
-    // sidebarWidth?: number;
+    /**
+     * Left Sidebar content.
+     */
+    leftSidebar?: ReactNode;
+    /**
+     * Right Sidebar content.
+     */
+    rightSidebar?: ReactNode;
+    /**
+     * Toggles left or/and right sidebar to has fixed position.
+     */
+    fixedSidebar?: boolean;
     // other -------------------------------------------------
     /**
      * Content of the page.
@@ -81,88 +57,107 @@ const rootStyle: React.CSSProperties = {
     height: '100vh',
     flexDirection: 'column',
 };
-const rootHeaderStyle: React.CSSProperties = {
-    display: 'flex',
-};
-const rootFooterStyle: React.CSSProperties = {
-    display: 'flex',
-};
 
-export class Layout extends React.PureComponent<LayoutProps> {
-    public render(): React.ReactNode {
-        const {
-            children,
-            className,
-            style,
-            // ----------------------------------------------------------
-            contentClassName,
-            contentStyle,
-            // ----------------------------------------------------------
-            header,
-            fixedHeader,
-            fixedHeaderHeigth,
-            headerClassName,
-            headerStyle,
-            // ----------------------------------------------------------
-            footer,
-            fixedFooter,
-            fixedFooterHeigth,
-            footerClassName,
-            footerStyle,
-            // sidebar
-            // sidebar,
-            // fixedSidebar,
-            // sidebarWidth,
-            content,
-        } = this.props;
-        // const contentStyle: React.CSSProperties = {};
-        // const sidebarStyle: React.CSSProperties = {
-        //     width: sidebarWidth ? sidebarWidth : StyleConstants.DEFAULT_SIDEBAR_WIDTH,
-        // };
-        // if (contentWidth) {
-        //     contentStyle.maxWidth = contentWidth;
-        //     contentStyle.margin = "0 auto";
-        // }
-        // if (fixedSidebar) {
-        //     sidebarStyle.position;
-        // }
-        const contextElement = content || children;
+export const Layout: React.FC<LayoutProps> = props => {
+    const {
+        children,
+        className,
+        style,
+        // ----------------------------------------------------------
+        header,
+        fixedHeader: showFixedHeader,
+        // ----------------------------------------------------------
+        footer,
+        fixedFooter: showFixedFooter,
+        // ----------------------------------------------------------
+        leftSidebar,
+        rightSidebar,
+        fixedSidebar: showFixedSidebar,
+        // ----------------------------------------------------------
+        content,
+    } = props;
 
-        const defaultHeader = header === undefined;
-        const defaultFooter = footer === undefined;
-        return (
-            <div style={{ ...rootStyle, ...style }} className={className}>
-                {header !== null ? (
-                    <div style={rootHeaderStyle}>
-                        <Header
-                            fixed={fixedHeader}
-                            className={headerClassName}
-                            style={headerStyle}
-                            fixedHeigth={fixedHeaderHeigth || StyleConstants.DEFAULT_HEADER_HEIGHT}
-                        >
-                            {defaultHeader ? 'Header' : header}
-                        </Header>
-                    </div>
-                ) : null}
-                <div style={{ display: 'flex', flex: 1 }}>
-                    {/* <div style={sidebarStyle}>
-                        {sidebar === "" ? <EmptyBox>Sidebar</EmptyBox> : <div>{sidebar}</div>}
-                    </div> */}
-                    <div className={contentClassName} style={{ flex: 1, ...contentStyle }}>
-                        {contextElement === undefined ? 'Context' : contextElement}
-                    </div>
-                </div>
-                <div style={rootFooterStyle}>
-                    <Footer
-                        fixed={fixedFooter}
-                        className={footerClassName}
-                        style={footerStyle}
-                        fixedHeigth={fixedFooterHeigth || StyleConstants.DEFAULT_FOOTER_HEIGHT}
-                    >
-                        {defaultFooter ? <div style={{ height: 50 }}>Footer</div> : footer}
-                    </Footer>
-                </div>
-            </div>
-        );
+    const headerNode = (
+        <div>
+            <Header>{header}</Header>
+        </div>
+    );
+    const footerNode = (
+        <div>
+            <Footer>{footer}</Footer>
+        </div>
+    );
+
+    const contextElement = content || children;
+    let fixedHeader: React.ReactNode = null;
+    let simpleHeader: React.ReactNode = null;
+    let contentHeader: React.ReactNode = null;
+
+    let fixedFooter: React.ReactNode = null;
+    let simpleFooter: React.ReactNode = null;
+    let contentFooter: React.ReactNode = null;
+
+    if (showFixedHeader === true) {
+        fixedHeader = headerNode;
+    } else if (showFixedSidebar === true) {
+        contentHeader = headerNode;
+    } else {
+        simpleHeader = headerNode;
     }
-}
+
+    if (showFixedFooter === true) {
+        fixedFooter = footerNode;
+    } else if (showFixedSidebar === true) {
+        contentFooter = footerNode;
+    } else {
+        simpleFooter = footerNode;
+    }
+
+    const fixedSidebarStyle: React.CSSProperties = {};
+    const fixedSidebarInnerContent: React.CSSProperties = {};
+    const notFixSideContent: React.CSSProperties = {};
+    if (showFixedSidebar) {
+        fixedSidebarStyle.overflow = 'auto';
+        fixedSidebarInnerContent.overflowY = 'auto';
+        fixedSidebarInnerContent.msOverflowY = 'auto';
+    } else {
+        notFixSideContent.overflowY = 'auto';
+        notFixSideContent.msOverflowY = 'auto';
+    }
+
+    return (
+        <div style={{ ...rootStyle, ...style }} className={className}>
+            {fixedHeader}
+            <div style={{ display: 'flex', flex: 1, flexDirection: 'column', overflow: 'auto' }}>
+                {simpleHeader}
+                <div
+                    style={{
+                        flex: 1,
+                        display: 'flex',
+                        flexDirection: 'row',
+                        ...fixedSidebarStyle,
+                        ...notFixSideContent,
+                    }}
+                >
+                    {leftSidebar ? (
+                        <div style={fixedSidebarStyle}>
+                            <Sidebar>{leftSidebar}</Sidebar>
+                        </div>
+                    ) : null}
+                    <div style={{ flex: 1, flexDirection: 'column', ...fixedSidebarStyle }}>
+                        {contentHeader}
+                        <div style={fixedSidebarInnerContent}>{contextElement}</div>
+                        {contentFooter}
+                    </div>
+                    {rightSidebar ? (
+                        <div style={fixedSidebarStyle}>
+                            <Sidebar>{rightSidebar}</Sidebar>
+                        </div>
+                    ) : null}
+                </div>
+                {simpleFooter}
+            </div>
+            {fixedFooter}
+        </div>
+    );
+};

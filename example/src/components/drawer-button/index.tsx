@@ -5,15 +5,15 @@ import { useInputCheckboxCallback } from '../hooks';
 
 export interface ControlOptions {
     // header -------------------------
-    fixedHeader?: boolean;
-    fixedHeaderHeigth?: number;
-    headerClassName?: string;
-    headerStyle?: React.CSSProperties;
+    fixedHeader: boolean;
+    defaultHeader: boolean;
     // footer -------------------------
-    fixedFooter?: boolean;
-    fixedFooterHeigth?: number;
-    footerClassName?: string;
-    footerStyle?: React.CSSProperties;
+    fixedFooter: boolean;
+    defaultFooter: boolean;
+    // footer -------------------------
+    showLeftSidebar: boolean;
+    showRightSidebar: boolean;
+    fixedSidebar: boolean;
 }
 
 interface Props extends ControlOptions {
@@ -21,14 +21,66 @@ interface Props extends ControlOptions {
 }
 
 export const DrawerButton: React.FC<Props> = props => {
-    const { fixedHeader, fixedFooter, onChange } = props;
+    const {
+        fixedHeader,
+        defaultHeader,
+        fixedFooter,
+        defaultFooter,
+        onChange,
+        showLeftSidebar,
+        showRightSidebar,
+        fixedSidebar,
+    } = props;
     const [open, setOpen] = useState(true);
-    const handleFixedHeader = useInputCheckboxCallback(checked => {
-        onChange({ ...props, fixedHeader: checked });
-    });
-    const handleFixedFooter = useInputCheckboxCallback(checked => {
-        onChange({ ...props, fixedFooter: checked });
-    });
+
+    const handleFixedHeader = useInputCheckboxCallback(
+        checked => {
+            onChange({ ...props, fixedHeader: checked });
+        },
+        [props],
+    );
+
+    const handleDefaultHeader = useInputCheckboxCallback(
+        checked => {
+            onChange({ ...props, defaultHeader: checked });
+        },
+        [props],
+    );
+
+    const handleFixedFooter = useInputCheckboxCallback(
+        checked => {
+            onChange({ ...props, fixedFooter: checked });
+        },
+        [props],
+    );
+
+    const handleDefaultFooter = useInputCheckboxCallback(
+        checked => {
+            onChange({ ...props, defaultFooter: checked });
+        },
+        [props],
+    );
+
+    const handleLeftSidebar = useInputCheckboxCallback(
+        checked => {
+            onChange({ ...props, showLeftSidebar: checked });
+        },
+        [props],
+    );
+
+    const handleRightSidebar = useInputCheckboxCallback(
+        checked => {
+            onChange({ ...props, showRightSidebar: checked });
+        },
+        [props],
+    );
+
+    const handleFixedSidebar = useInputCheckboxCallback(
+        checked => {
+            onChange({ ...props, fixedSidebar: checked });
+        },
+        [props],
+    );
 
     return (
         <div className="drawer-panel">
@@ -45,12 +97,15 @@ export const DrawerButton: React.FC<Props> = props => {
                         onValueChange={this.onContentWidthChange}
                     />
                 </div> */}
-                    <div>
-                        <Switch checked={fixedHeader} label="Is Fixed Header" onChange={handleFixedHeader} />
-                    </div>
-                    <div>
-                        <Switch checked={fixedFooter} label="Is Fixed Footer" onChange={handleFixedFooter} />
-                    </div>
+                    <Switch checked={fixedHeader} label="Fixed Header" onChange={handleFixedHeader} />
+                    <Switch checked={defaultHeader} label="Default Header" onChange={handleDefaultHeader} />
+                    <hr />
+                    <Switch checked={fixedFooter} label="Fixed Footer" onChange={handleFixedFooter} />
+                    <Switch checked={defaultFooter} label="Default Footer" onChange={handleDefaultFooter} />
+                    <hr />
+                    <Switch checked={showLeftSidebar} label="Left Sidebar" onChange={handleLeftSidebar} />
+                    <Switch checked={showRightSidebar} label="Right Sidebar" onChange={handleRightSidebar} />
+                    <Switch checked={fixedSidebar} label="Fixed Sidebar" onChange={handleFixedSidebar} />
                 </div>
             ) : null}
         </div>
