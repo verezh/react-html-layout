@@ -38,7 +38,7 @@
         "dev": "concurrently --kill-others \"npm run build-watch\" \"npm run start-example\"",
         "test": "ts-node test/test.ts",
         "pretest": "npm run build",
-        "test:lint": "eslint ./src/**/*.ts ./src/**/*.tsx ./example/src/**/*.ts ./example/src/**/*.tsx",
+        "test:lint": "eslint ./src/**/*.ts ./src/**/*.tsx ./example/src/**/*.(ts|tsx)",
         "test:lint:fix": "npm run test:lint -- --fix"
     },
     "repository": {
